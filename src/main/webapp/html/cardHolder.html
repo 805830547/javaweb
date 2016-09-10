@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>注册页面</title>
+<style type="text/css">
+table {
+    background-color: #00FFFF;
+    margin-top: 100px;
+    border: 2px solid #FF0000;
+    width: 400px;
+    height: 300px;
+    margin: 100px auto;
+}
+
+.atns {
+    width: 200px;
+    height: 30px;
+    font-size: 30px;
+}
+
+.btns {
+    width: 100px;
+    height: 40px;
+    background-color: #9933FF;
+    color: #FFFFFF;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.btns:hover {
+    background-color: #FFFFFF;
+    color: #0000FF;
+}
+</style>
+</head>
+<body style="background-color: #F2F2F2">
+    <form name="zhuce" action="http://localhost:8080/javaweb/cardHolder" method="post">
+        <table>
+            <tr>
+                <td align="center" style="font-size: 30px">
+                    账号:
+                    <input type="text" class="atns" name="cardNumber">
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="font-size: 30px">
+                    密码:
+                    <input type="password" class="atns" name="passWord">
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <input type="submit" class="btns" name="submit" value="注册">
+                    <input type="reset" class="btns" name="reset" type="submit" value="重置">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

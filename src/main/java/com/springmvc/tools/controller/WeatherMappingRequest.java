@@ -17,6 +17,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.springmvc.myutil.jexcelsql.CityService;
+
 import jxl.Sheet;
 import jxl.Workbook;
 
@@ -35,9 +37,10 @@ public class WeatherMappingRequest {
 
         DefaultHttpClient httpclient = new DefaultHttpClient();
 
+        String cityId = CityService.getCityIdString("city_id",
+                "city_name_zh='" + request.getParameter("location") + "'");
         // 目标地址
-        String urlString = createWeatherAPIURL(request.getParameter("location"), request.getParameter("language"),
-                request.getParameter("unit"));
+        String urlString = createWeatherAPIURL(cityId, request.getParameter("language"), request.getParameter("unit"));
         HttpGet httpGet = new HttpGet(urlString);
 
         // 执行
@@ -70,9 +73,9 @@ public class WeatherMappingRequest {
         url.append(WEATHER_API_KEY);
         url.append("&location=");
         url.append(location);
-        url.append("&language");
+        url.append("&languag=");
         url.append(language);
-        url.append("&unit");
+        url.append("&unit=");
         url.append(unit);
 
         return url.toString();

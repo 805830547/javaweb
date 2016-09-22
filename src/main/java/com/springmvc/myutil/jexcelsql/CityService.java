@@ -16,6 +16,23 @@ import jxl.Workbook;
  */
 public class CityService {
 
+    public static String getCityIdString(String colName, String condition) {
+        List<String> list = new ArrayList<String>();
+        try {
+            DBhepler db = new DBhepler();
+            String sql = "select " + colName + " from city where " + condition;
+            ResultSet rs = db.Search(sql, null);
+            while (rs.next()) {
+                list.add(rs.getString(colName));
+            }
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return list.get(0);
+    }
+
     public static List<String> getStringList(String colName, String condition) {
         List<String> list = new ArrayList<String>();
         try {
@@ -98,7 +115,6 @@ public class CityService {
             e.printStackTrace();
         }
         return list;
-
     }
 
     /**

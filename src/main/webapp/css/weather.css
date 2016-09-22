@@ -1,0 +1,39 @@
+
+body {
+  background: #ddecfe;
+}
+
+.fontsmal {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.fontmedium {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.fontmediumred {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+}
+
+.fontbig {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.select {
+    width:100px;
+    height:30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.button {
+    width:100px;
+    height:30px;
+    font-size: 20px;
+    font-weight: bold;
+}

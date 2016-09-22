@@ -1,13 +1,31 @@
 $(document).ready(function () {
-
+	getProvince();
+	getCity();
+	queryWeather();
 });
 $("#query").click(function() {
+	queryWeather()
+});
+$("#countrylist").change(function() {
+	getProvince();
+});
+
+$("#provincelist").change(function() {
+	getCity();
+	queryWeather();
+});
+
+$("#citylist").change(function() {
+	queryWeather();
+});
+
+function queryWeather(){
 	$.ajax({
 		type : "POST",
 		async:false,
 		url : "weather",
 		dataType:"text",
-		data : "location=dalian&language=zh-Hans&unit=c",
+		data : "location="+$("#citylist").val()+"&language=zh-Hans&unit=c",
 
 		success : function(data) {
 			var weatherDate = $.parseJSON(data);
@@ -19,24 +37,47 @@ $("#query").click(function() {
 		error : function(data) {
 			$("#city").text("error");
 		}
-
 	});
-});
-$("#ccc").click(function() {
+}
+
+function getProvince(){
 	$.ajax({
 		type : "POST",
 		async:false,
 		url : "getProvince",
-		dataType:"text",
-		data : "country='中国'",
+		dataType:"json",
+		data : "country='" + $("#countrylist").val() + "'",
 
 		success : function(data) {
-			$("#city").text(data);
+			var insert="";
+			for (var i = 0 ;i<data.length;i++) {
+				insert += "<option id="+i+">"+data[i].province+"</option>";
+			}
+			document.getElementById("provincelist").innerHTML = (insert);
 		},
 		error : function(data) {
 			$("#city").text("error");
 		}
-
 	});
-});
+}
 
+function getCity(){
+	$.ajax({
+		type : "POST",
+		async:false,
+		url : "getCity",
+		dataType:"json",
+		data : "province='" + $("#provincelist").val() + "'",
+
+		success : function(data) {
+			var insert="";
+			for (var i = 0 ;i<data.length;i++) {
+				insert += "<option id="+i+">"+data[i].city+"</option>";
+			}
+			document.getElementById("citylist").innerHTML = (insert);
+		},
+		error : function(data) {
+			$("#city").text("error");
+		}
+	});
+}

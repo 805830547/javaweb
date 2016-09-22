@@ -11,33 +11,36 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.springmvc.myutil.jexcelsql.CityService;
 
+import net.sf.json.JSONObject;
+
 @Controller
 public class SelectCity {
 
-    @RequestMapping(value = "/getProvince", produces = "text/html;charset=UTF-8")
+    @RequestMapping(value = "/getProvince", produces = "application/json;charset=UTF-8")
     @ResponseBody
-    public String getProvince(HttpServletRequest request) {
+    public ArrayList<JSONObject> getProvince(HttpServletRequest request) {
         List<String> list = new ArrayList<String>();
         list = CityService.getStringList("province", "country = " + request.getParameter("country"));
-        StringBuffer provinceStr = new StringBuffer();
+        ArrayList<JSONObject> provinceJsonList = new ArrayList<JSONObject>();
         for (String lString : list) {
-            provinceStr.append(lString);
-            provinceStr.append("/");
+            JSONObject provinceJson = new JSONObject();
+            provinceJson.put("province", lString);
+            provinceJsonList.add(provinceJson);
         }
-        return provinceStr.toString();
+        return provinceJsonList;
     }
 
-    @RequestMapping(value = "/getCity", produces = "text/html;charset=UTF-8")
+    @RequestMapping(value = "/getCity", produces = "application/json;charset=UTF-8")
     @ResponseBody
-    public String getCity(HttpServletRequest request) {
+    public ArrayList<JSONObject> getCity(HttpServletRequest request) {
         List<String> list = new ArrayList<String>();
-        list = CityService.getStringList("city", "province = " + request.getParameter("province"));
-        StringBuffer provinceStr = new StringBuffer();
+        list = CityService.getStringList("city_name_zh", "province = " + request.getParameter("province"));
+        ArrayList<JSONObject> provinceJsonList = new ArrayList<JSONObject>();
         for (String lString : list) {
-            provinceStr.append(lString);
-            provinceStr.append("/");
+            JSONObject provinceJson = new JSONObject();
+            provinceJson.put("city", lString);
+            provinceJsonList.add(provinceJson);
         }
-        return provinceStr.toString();
+        return provinceJsonList;
     }
-
 }

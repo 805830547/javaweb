@@ -1,10 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Weather Query</title>
+<link rel="stylesheet" href="./css/weather.css" type="text/css" media="screen">
 </head>
 <body>
-Welcome
-</body>
-</html>
+<font class="fontbig">欢迎查询天气</font>
+<br>
+<br>
+<br>
+<select class="select" id="countrylist">
+<option id="china">中国</option>
+</select>
+<select class="select" id="provincelist"></select>
+<select class="select" id="citylist"></select>
+<br>
+<br>
+<br>
+<font class="fontmedium">城市：</font>
+<font class="fontmediumred" id="city">*</font>
+<br>
+<font class="fontmedium">天气：</font>
+<font class="fontmediumred" id="weather">*</font>
+<br>
+<font class="fontmedium">风速：</font>
+<font class="fontmediumred" id="speed">*</font>
+<br>
+<font class="fontmedium">气温：</font>
+<font class="fontmediumred" id="temperature">*</font>
+<br>
+<br>
+<button class="button" id="query">查询</button>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/weather.js"></script>
+</body></html>

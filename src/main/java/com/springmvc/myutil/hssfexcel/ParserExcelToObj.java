@@ -1,9 +1,7 @@
 package com.springmvc.myutil.hssfexcel;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -20,7 +18,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ParserExcelToObj {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // TODO Auto-generated method stub
         // List<String> studentString = new ArrayList<String>();
         // studentString.add("110036");
@@ -56,8 +54,7 @@ public class ParserExcelToObj {
 
                 in.close();
             }
-        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | InstantiationException
-                | IOException | NoSuchMethodException | SecurityException | ClassNotFoundException e) {
+        } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }

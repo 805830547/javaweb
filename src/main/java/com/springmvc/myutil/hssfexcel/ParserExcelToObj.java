@@ -27,8 +27,8 @@ public class ParserExcelToObj {
         // studentString.add("25");
 
         try {
-            Class<?> clazz = Class.forName("com.springmvc.myutil.hssfexcel.Student");
-            Method m = clazz.getDeclaredMethod("parserDate", ArrayList.class);
+            Class<?> clazz = Class.forName("com.springmvc.myutil.hssfexcel.StListudent");
+            Method m = clazz.getMethod("parserDate", ArrayList.class);
 
             InputStream in = new FileInputStream("D:/CSource/VIP_LIST_201610.xlsx");
             XSSFWorkbook wb = new XSSFWorkbook(in);

@@ -1,6 +1,6 @@
 package com.springmvc.myutil.hssfexcel;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Student {
     private String studentNumber;
@@ -45,12 +45,13 @@ public class Student {
     }
 
     // reflect to creat a new object
-    public Student parserDate(ArrayList<String> studentString) {
-        Student stu = new Student();
-        stu.setStudentNumber(studentString.get(0));
-        stu.setStudentName(studentString.get(1));
-        stu.setStudentSex(studentString.get(2));
-        stu.setStudentAge(studentString.get(3));
-        return stu;
+    public Student parserDate(List<String> studentString) {
+        
+        studentNumber = studentString.get(0).trim();
+        studentName = studentString.get(1).trim();
+        studentSex = studentString.get(2).trim();
+        studentAge = studentString.get(3).trim();
+        
+        return this;
     }
 }

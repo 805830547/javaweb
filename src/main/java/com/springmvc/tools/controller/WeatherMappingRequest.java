@@ -25,7 +25,7 @@ import jxl.Workbook;
 @Controller
 public class WeatherMappingRequest {
 
-    private final String WEATHER_API_KEY = "dk3xfwvps4bnz7tg";
+    private final String WEATHER_API_KEY = "dmpbotwwq9mcocnl";
     private final String WEATHER_API_ENDPOINT = "https://api.thinkpage.cn/v3/weather/now.json";
 
     @RequestMapping(value = "/weather", produces = "text/html;charset=UTF-8")

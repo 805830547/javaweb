@@ -28,8 +28,9 @@ public class HttpClientUtil {
             httpPost = new HttpPost(url);
             // 设置参数
             List<NameValuePair> list = new ArrayList<NameValuePair>();
-            Iterator iterator = map.entrySet().iterator();
+            Iterator<?> iterator = map.entrySet().iterator();
             while (iterator.hasNext()) {
+                @SuppressWarnings("unchecked")
                 Entry<String, String> elem = (Entry<String, String>) iterator.next();
                 list.add(new BasicNameValuePair(elem.getKey(), elem.getValue()));
             }
@@ -37,6 +38,7 @@ public class HttpClientUtil {
                 UrlEncodedFormEntity entity = new UrlEncodedFormEntity(list, charset);
                 httpPost.setEntity(entity);
             }
+            @SuppressWarnings("null")
             HttpResponse response = httpClient.execute(httpPost);
             if (response != null) {
                 HttpEntity resEntity = response.getEntity();

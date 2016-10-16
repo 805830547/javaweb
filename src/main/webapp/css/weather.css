@@ -1,6 +1,13 @@
-
 body {
   background: #ddecfe;
+}
+
+.holebody {
+  width:85%;
+  height:100%;
+  margin: 0 auto;
+  position: relative;
+/*  border: 1px solid #73AD21; */
 }
 
 .fontsmal {

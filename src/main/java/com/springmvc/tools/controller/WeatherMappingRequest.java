@@ -28,6 +28,7 @@ public class WeatherMappingRequest {
     private final String WEATHER_API_KEY = "dmpbotwwq9mcocnl";
     private final String WEATHER_API_ENDPOINT = "https://api.thinkpage.cn/v3/weather/now.json";
 
+    @SuppressWarnings("deprecation")
     @RequestMapping(value = "/weather", produces = "text/html;charset=UTF-8")
     @ResponseBody
     public String getCardInfo(HttpServletRequest request)
@@ -46,11 +47,12 @@ public class WeatherMappingRequest {
         // 执行
         HttpResponse response = httpclient.execute(httpGet);
         HttpEntity entity = response.getEntity();
-        System.out.println(response.getStatusLine());
+        // System.out.println(response.getStatusLine());
 
-        if (entity != null) {
-            System.out.println("Response content length: " + entity.getContentLength()); // 得到返回数据的长度
-        }
+        // if (entity != null) {
+        // System.out.println("Response content length: " +
+        // entity.getContentLength()); // 得到返回数据的长度
+        // }
         // 显示结果
         BufferedReader reader = new BufferedReader(new InputStreamReader(entity.getContent(), "UTF-8"));
 

@@ -35,6 +35,7 @@ public class TestHttpClient {
      *         httpclient方法中post提交数据的使用 @param @return @param @throws
      *         Exception @return String @throws
      */
+    @SuppressWarnings("deprecation")
     public static String methodPost() throws Exception {
         DefaultHttpClient httpclient = new DefaultHttpClient();
         // // 代理的设置
@@ -82,6 +83,7 @@ public class TestHttpClient {
      *         以get方法提交数的使用 @param @return @param @throws Exception @return
      *         String @throws
      */
+    @SuppressWarnings("deprecation")
     public static String methodGet() throws Exception {
         DefaultHttpClient httpclient = new DefaultHttpClient();
         // // 代理的设置
@@ -128,6 +130,7 @@ public class TestHttpClient {
      * @param params
      * @return json object ,or null if failed 参数经过封装后传过来 ，提交为 post请求
      */
+    @SuppressWarnings("unused")
     private static JSONObject getJsonFromUrl(String urlStr, Map<String, String> params) {
         HttpClient httpClient = new DefaultHttpClient();
         HttpPost httpPost = new HttpPost(urlStr);

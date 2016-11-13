@@ -1,4 +1,4 @@
-package common.annotation;
+package common.validation.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -17,7 +17,9 @@ import javax.validation.Payload;
 @Documented
 public @interface Period {
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
+
     /** default message */
     String message() default "illegal";
 
@@ -28,22 +30,17 @@ public @interface Period {
         /** enum of SearchType */
         public enum PeriodEnum {
             /** January */
-            JANUARY("Jan"),
-            FEBRUARY("Feb"),
-            MARCH("Mar"),
-            APRIL("Apr"),
-            MAY("May"),
-            JUNE("Jun"),
-            JULY("Jul"),
-            AUGUST("Aug"),
-            SEPTEMBER("Sep"),
-            OCTOBER("Oct"),
-            NOVEMBER("Nov"),
-            DECEMBER("Dec");
+            JANUARY("Jan"), FEBRUARY("Feb"), MARCH("Mar"), APRIL("Apr"), MAY("May"), JUNE("Jun"), JULY("Jul"), AUGUST("Aug"), SEPTEMBER("Sep"), OCTOBER("Oct"), NOVEMBER("Nov"), DECEMBER("Dec");
 
             private String month;
-            private PeriodEnum(String month) { this.month = month;}
-            public String getMonth() { return month;}
+
+            private PeriodEnum(String month) {
+                this.month = month;
+            }
+
+            public String getMonth() {
+                return month;
+            }
         }
 
         /**

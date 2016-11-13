@@ -1,4 +1,4 @@
-package common;
+package common.validation;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -17,7 +17,8 @@ import javax.validation.groups.Default;
  * <br>
  * To use these methods, add annotation to targer models<br>
  * <br>
- * If you want to change violation messages, put 'ValidationMessages.properties' on your classpath
+ * If you want to change violation messages, put 'ValidationMessages.properties'
+ * on your classpath
  *
  * @author ryo.yoneda
  */
@@ -60,9 +61,11 @@ public class AnnotationValidator {
             return messageList;
         }
         Set<ConstraintViolation<Object>> violations = validator.validate(object, Default.class);
-        if (violations.isEmpty()) { return messageList; }
+        if (violations.isEmpty()) {
+            return messageList;
+        }
         StringBuilder stringBuilder = new StringBuilder();
-        for (ConstraintViolation<Object> violation: violations) {
+        for (ConstraintViolation<Object> violation : violations) {
             stringBuilder.append(violation.getPropertyPath());
             stringBuilder.append(" ");
             stringBuilder.append(violation.getMessage());
@@ -85,14 +88,14 @@ public class AnnotationValidator {
             return null;
         }
         List<String> violationMessages = new ArrayList<String>();
-        for (Object object: objectArray) {
+        for (Object object : objectArray) {
             violationMessages.addAll(getViolationMessageList(object));
         }
         if (violationMessages.isEmpty()) {
             return null;
         }
         StringBuilder stringBuilder = new StringBuilder();
-        for (String message: violationMessages) {
+        for (String message : violationMessages) {
             stringBuilder.append(message).append(" ");
         }
         return stringBuilder.toString();

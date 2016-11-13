@@ -1,4 +1,4 @@
-package common.annotation;
+package common.validation.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -18,7 +18,9 @@ import javax.validation.Payload;
 @Documented
 public @interface Entity {
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
+
     /** default message */
     String message() default "illegal";
 

@@ -30,8 +30,7 @@ import common.validation.AnnotationValidator;
  * @NotEmpty 被注释的字符串的必须非空
  * @Range 被注释的元素必须在合适的范围内
  */
-
-public class Person {
+class Person {
     @Length(max = 10)
     private String name;
     // @Length(max=3)
@@ -65,12 +64,15 @@ public class Person {
     public void setMoney(BigDecimal money) {
         this.money = money;
     }
+}
+
+public class AnnotationTest {
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
         Person person = new Person();
         person.setName("Tom");
-        person.setAge(25);
+        person.setAge(250);
         person.setMoney(new BigDecimal(9998.99));
 
         String message = AnnotationValidator.getViolationMessage(person);

@@ -22,7 +22,7 @@ $("#citylist").change(function() {
 function queryWeather(){
 	$.ajax({
 		type : "POST",
-		async:false,
+		async:true,
 		url : "weather",
 		dataType:"text",
 		data : "location="+$("#citylist").val()+"&language=zh-Hans&unit=c",

@@ -17,4 +17,9 @@ public class MappingRequest {
     public String RedictHtml(HttpServletRequest request) {
         return "/cardHolder";
     }
+
+    @RequestMapping(value = "/color")
+    public String color(HttpServletRequest request) {
+        return "/htmlcolor";
+    }
 }

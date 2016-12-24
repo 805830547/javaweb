@@ -46,7 +46,7 @@ public class ParserExcelToObj {
 
                 object = m.invoke(clazz.newInstance(), studentString);
 
-                Student student = (Student) object;
+                Student2 student = (Student2) object;
                 System.out.println(student.getStudentNumber());
                 System.out.println(student.getStudentName());
                 System.out.println(student.getStudentSex());

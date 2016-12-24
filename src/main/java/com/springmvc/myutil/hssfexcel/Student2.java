@@ -2,13 +2,13 @@ package com.springmvc.myutil.hssfexcel;
 
 import java.util.List;
 
-public class Student {
+public class Student2 {
     private String studentNumber;
     private String studentName;
     private String studentSex;
     private String studentAge;
 
-    public Student() {
+    public Student2() {
         // TODO Auto-generated constructor stub
     }
 
@@ -45,7 +45,7 @@ public class Student {
     }
 
     // reflect to creat a new object
-    public Student parserDate(List<String> studentString) {
+    public Student2 parserDate(List<String> studentString) {
         
         studentNumber = studentString.get(0).trim();
         studentName = studentString.get(1).trim();

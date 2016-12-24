@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.springmvc.api.persistence.StudentDao">
+    <insert id="setStudent" parameterType="com.springmvc.api.model.Student">
+        INSERT INTO message (name, age) VALUES ('ggg' , 10)
+    </insert>
+    <select id="getStudent" resultType="com.springmvc.api.model.Student">
+        select
+            name as name,
+            age as age
+        from
+            message
+    </select>
+</mapper>
